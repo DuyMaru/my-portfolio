@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nguyễn Vũ Duy | Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="fb" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </symbol>
+  <symbol id="gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></symbol>
+  <symbol id="ar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="fl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="cd" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="us" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="ml" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="ms" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+  <symbol id="sd" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M17.5 6.5h.01"/></symbol>
+  <symbol id="im" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15l-5-5L5 21"/></symbol>
+</defs></svg>
+<canvas id="stars"></canvas><div id="glow"></div>
+
+<nav class="nav" id="nav">
+  <span class="pill" id="pill"></span>
+  <div class="mascot" id="mascot"><div class="face"><div class="eyes" id="eyes"><i></i><i></i></div></div><div class="dia"></div></div>
+  <a href="#home" class="on">Trang chủ</a><a href="#about">Giới thiệu</a><a href="#portfolio">Dự án</a><a href="#contact">Liên hệ</a>
+</nav>
+
+<section id="home" class="hero"><div class="wrap g2">
+  <div>
+    <h1 class="big"><span class="b">Biến ý tưởng</span><span>thành hiện thực</span></h1>
+    <p class="sub" id="tw"></p>
+    <p class="lead">Bắt đầu từ sự tò mò, lớn dần thành đam mê. Tôi xây dựng những sản phẩm số không chỉ đẹp mắt mà còn thật sự có ý nghĩa với người dùng.</p>
+    <div class="row"><a class="btn p" href="#portfolio">Dự án <svg class="i"><use href="#ar"/></svg></a><a class="btn" href="#contact">Liên hệ <svg class="i"><use href="#ar"/></svg></a></div>
+    <div class="find">KẾT NỐI
+  <a href="https://www.facebook.com/share/1KBrSvwPtr/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+    <svg class="i"><use href="#fb"/></svg>
+  </a>
+  <a href="https://www.instagram.com/duy.nguyenvu.794?cplk=MTJ0dTfjMvRn295dQ%3D3D&utm_source=qr" target="_blank" aria-label="Instagram">
+    <svg class="i"><use href="#ig"/></svg>
+  </a>
+  </div>
+  </div>
+  <div class="card music" id="music">
+    <h2>Nhạc mỗi ngày</h2><p>Playlist tôi hay nghe…</p>
+    <div class="now">
+      <div class="cover"><img id="cover" src="images/nhac-1.jpg" alt="Cover"></div>
+      <div><h3 id="tt"></h3><small id="ta"></small><div class="eq"><i></i><i></i><i></i><i></i></div></div>
+      <div class="ctl"><button id="pv">⏮</button><button id="pl" class="pl">▶</button><button id="nx">⏭</button></div>
+      <div class="bar"><i id="pg"></i></div>
+    </div>
+    <div class="tl" id="tl"></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap g3">
+  <div class="rv">
+    <h1 class="big" style="font-size:clamp(2.4rem,4.6vw,4rem)"><span class="b">Xin chào,<br>tôi là</span><br><span class="name">Nguyễn Vũ Duy</span></h1>
+    <div class="row"><a class="btn p" href="#contact"><svg class="i"><use href="#fl"/></svg> Liên hệ với tôi</a><a class="btn" href="files/cv.pdf" target="_blank"><svg class="i"><use href="#fl"/></svg> Tải CV</a></div>
+  </div>
+  <div class="photo rv" id="photo"><div class="in" id="tilt"><span>NVD</span><img src="images/avatar.jpg" alt="Nguyễn Vũ Duy" onerror="this.remove()"></div></div>
+  <div class="rv">
+    <p class="lead">Là sinh viên ngành Công nghệ thông tin, tôi tập trung phát triển những sản phẩm công nghệ vừa hoạt động tốt, vừa mang lại trải nghiệm số hấp dẫn và có tác động.</p>
+    <div class="chips" id="chips"></div>
+  </div>
+</div></section>
+<section id="portfolio"><div class="wrap">
+  <h2 class="t rv">Dự án của tôi</h2>
+  <div class="grid" id="grid"></div>
+</div></section>
+<div class="modal" id="modal"><div class="card"><h2 id="mt"></h2><p id="md"></p><div class="chips" id="mg"></div><div class="row"><button class="btn p" id="mc">Đóng</button></div></div></div>
+<section id="contact"><div class="wrap">
+  <h2 class="t rv big" style="font-size:clamp(2.2rem,5vw,4rem)">Liên hệ với tôi</h2>
+  <div class="cg">
+    <form class="card rv" action="https://formspree.io/f/xzeeglrb" method="POST">
+  <h2 class="b">Liên hệ</h2><p class="d">Có điều gì muốn trao đổi? Cứ gửi tin nhắn cho tôi nhé!</p>
+  <div class="f"><svg class="i"><use href="#us"/></svg><input id="cn" name="name" placeholder="Tên của bạn" required></div>
+  <div class="f"><svg class="i"><use href="#ml"/></svg><input id="ce" name="email" type="email" placeholder="Email của bạn" required></div>
+  <div class="f"><svg class="i"><use href="#ms"/></svg><textarea id="cm" name="message" placeholder="Tin nhắn của bạn" required></textarea></div>
+  <button type="submit" class="btn w" id="send"><svg class="i"><use href="#sd"/></svg> Gửi tin nhắn</button>
+</form>
+<div>
+<div>
+    <div class="card rv">
+      <h2 style="font-size:1.5rem">Bình luận (<span id="cnt">0</span>)</h2>
+      <div style="border-top:1px solid var(--line);margin:22px 0"></div>
+      <label for="kn">Tên</label><div class="f"><input class="n" id="kn" name="commenter_name" placeholder="Nhập tên của bạn"></div>
+      <label for="kc">Bình luận</label><div class="f"><textarea class="n" id="kc" style="min-height:110px" placeholder="Viết bình luận của bạn ở đây…"></textarea></div>
+      <label>Ảnh đại diện <small>(không bắt buộc)</small></label>
+      <label class="up" for="kf" id="kl"><svg class="i"><use href="#im"/></svg> Chọn ảnh đại diện</label><input id="kf" type="file" accept="image/*" hidden>
+      <p class="hint">Dung lượng tối đa: 5MB</p>
+      <button class="btn w" id="kb"><svg class="i"><use href="#sd"/></svg> Gửi bình luận</button>
+      <div class="cm" id="list"></div>
+    </div>
+  </div>
+</div></section>
+<div class="toast" id="toast"></div>
+<!-- Thư viện Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
