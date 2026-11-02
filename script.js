@@ -1,11 +1,6 @@
 const $ = id => document.getElementById(id);
 const EMAIL = "nguyenvuduy64310@gmail.com"; 
 const SKILLS = ["C++", "Python", "HTML", "CSS"];
-const TRACKS = [
-  ["Tìm Em", "Hngle-ft. Bảo Anh", 221, "music/bai1.mp3", "images/nhac-1.jpg"],
-  ["3 PHẢI 6 ĐỪNG", "Quân A.P ", 199, "music/bai2.mp3", "images/nhac-2.jpg"],
-  ["3107 ft 267", "W/n", 192, "music/bai3.mp3", "images/nhac-3.jpg"]
-];
 const PROJ = [
   [
     "Website RujukCepat",
@@ -106,12 +101,13 @@ addEventListener("mousemove", e => {
 
 
 const ph = $("photo"), tl = $("tilt");
-ph.onmousemove = e => {
-  const r = ph.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
-  tl.style.transform = `rotateY(${px * 16}deg) rotateX(${-py * 16}deg)`;
-};
-ph.onmouseleave = () => tl.style.transform = "";
-
+if (ph && tl) {
+  ph.onmousemove = e => {
+    const r = ph.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+    tl.style.transform = `rotateY(${px * 16}deg) rotateX(${-py * 16}deg)`;
+  };
+  ph.onmouseleave = () => tl.style.transform = "";
+}
 
 const secs = [...document.querySelectorAll("section")], links = [...document.querySelectorAll(".nav a")];
 function spy() {
@@ -138,7 +134,7 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 document.querySelectorAll(".rv").forEach(el => io.observe(el));
 
 /* typewriter */
-const PH = ["Sinh viên công nghệ thông tin", "Lập trình C++ & Python HTML&CSS", "Đam mê học máy"];
+const PH = ["Sinh viên công nghệ thông tin", "Lập trình C++ & Python ", "Đam mê học máy"];
 let pi = 0, ci = 0, del = false;
 (function ty() {
   const w = PH[pi];
@@ -156,117 +152,6 @@ let pi = 0, ci = 0, del = false;
   setTimeout(ty, d);
 })();
 
-const audio = new Audio();
-let cur = 0, on = false;
-
-const fm = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-
-function draw() {
-  $("tt").textContent = TRACKS[cur][0];
-  $("ta").textContent = TRACKS[cur][1];
-  
-  // Cập nhật ảnh bìa an toàn
-  const coverImg = document.querySelector("#cover") || document.querySelector("#music img");
-  if (coverImg && TRACKS[cur][4]) {
-    coverImg.src = TRACKS[cur][4];
-  }
-
-  
-  $("tl").innerHTML = TRACKS.map((t, i) => 
-    `<div class="${i == cur ? "on" : ""}" data-t="${i}"><em>${i + 1}</em><span><b>${t[0]}</b><small>${t[1]}</small></span><time>${fm(t[2])}</time></div>`
-  ).join("");
-
-  
-  document.querySelectorAll("[data-t]").forEach(d => d.onclick = () => {
-    cur = +d.dataset.t;
-    playTrack();
-  });
-}
-
-function playTrack() {
-  if (TRACKS[cur] && TRACKS[cur][3]) {
-    audio.src = TRACKS[cur][3];
-    audio.play();
-    on = true;
-    sync();
-  }
-}
-
-function sync() {
-  $("music").classList.toggle("playing", on);
-  $("pl").textContent = on ? "❚❚" : "►";
-  draw();
-}
-
-
-audio.ontimeupdate = () => {
-  if (audio.duration) {
-    $("pg").style.width = (audio.currentTime / audio.duration) * 100 + "%";
-  }
-};
-
-
-audio.onended = () => {
-  cur = (cur + 1) % TRACKS.length;
-  playTrack();
-};
-
-// Xử lý nút Play / Pause chính
-$("pl").onclick = () => {
-  if (!audio.src) {
-    playTrack();
-  } else if (audio.paused) {
-    audio.play();
-    on = true;
-  } else {
-    audio.pause();
-    on = false;
-  }
-  sync();
-};
-
-
-$("nx").onclick = () => { cur = (cur + 1) % TRACKS.length; playTrack(); };
-$("pv").onclick = () => { cur = (cur + TRACKS.length - 1) % TRACKS.length; playTrack(); };
-
-
-draw();
-audio.ontimeupdate = () => {
-  if (audio.duration) {
-    $("pg").style.width = (audio.currentTime / audio.duration) * 100 + "%";
-  }
-};
-
-
-audio.onended = () => {
-  cur = (cur + 1) % TRACKS.length;
-  playTrack();
-};
-
-
-$("pl").onclick = () => {
-  if (!audio.src) {
-    playTrack();
-  } else if (audio.paused) {
-    audio.play();
-    on = true;
-  } else {
-    audio.pause();
-    on = false;
-  }
-  sync();
-};
-
-
-$("nx").onclick = () => { cur = (cur + 1) % TRACKS.length; playTrack(); };
-$("pv").onclick = () => { cur = (cur + TRACKS.length - 1) % TRACKS.length; playTrack(); };
-
-
-draw();
-$("pg").style.width = (audio.currentTime || 0) / TRACKS[cur][2] * 100 + "%";
-sync();
-
-
 function toast(m) {
   const t = document.getElementById("toast");
   if (t) {
@@ -277,7 +162,7 @@ function toast(m) {
   }
 }
 
-// Cấu hình Firebase đầy đủ và chuẩn xác của Duy
+// Cấu hình Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBEcmCInqhGdxhsrO2cDSH2LoZZu3J39Uk",
   authDomain: "my-portfolio-dbac8.firebaseapp.com",
@@ -289,7 +174,6 @@ const firebaseConfig = {
   measurementId: "G-FKE71ZTEDW"
 };
 
-// Khởi tạo Firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
@@ -299,7 +183,6 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 const UPLOAD_LABEL = "Chọn ảnh đại diện";
 let img = "";
 
-// Xử lý chọn ảnh đại diện (avatar)
 const kfEl = document.getElementById("kf");
 if (kfEl) {
   kfEl.onchange = e => {
@@ -319,7 +202,6 @@ if (kfEl) {
     r.readAsDataURL(f);
   };
 }
-
 
 db.ref("comments").on("value", snapshot => {
   const data = snapshot.val();
@@ -350,7 +232,6 @@ db.ref("comments").on("value", snapshot => {
   }
 });
 
-
 const kbEl = document.getElementById("kb");
 if (kbEl) {
   kbEl.onclick = () => {
@@ -363,7 +244,6 @@ if (kbEl) {
     if (!n) { if (knEl) knEl.focus(); return toast("Bạn chưa nhập tên"); }
     if (!t) { if (kcEl) kcEl.focus(); return toast("Bạn chưa nhập bình luận"); }
 
-    
     db.ref("comments").push({
       n: n,
       t: t,
@@ -382,3 +262,40 @@ if (kbEl) {
     });
   };
 }
+
+/* Thẻ treo con lắc, kéo thả được */
+(function () {
+  var pend = document.getElementById('lny-pend'), stage = document.getElementById('lny-stage'),
+      bd = document.getElementById('lny-badge'), anc = document.getElementById('lny-anc');
+  if (!pend || !bd || !stage || !anc) return;
+  var th = 0.7, om = 0, drag = false, pl = 0, lt = 0, vis = false, running = false;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function swing(now) {
+    var dt = Math.min(0.033, (now - lt) / 1000 || 0.016); lt = now;
+    if (!drag) { om += (-15 * Math.sin(th) - 0.7 * om) * dt; th += om * dt; }
+    pend.style.transform = 'rotate(' + th + 'rad)';
+    if (vis) requestAnimationFrame(swing); else running = false;
+  }
+  function go() { if (!running && !reduce) { running = true; lt = performance.now(); requestAnimationFrame(swing); } }
+
+  function pt(e) {
+    var r = anc.getBoundingClientRect();
+    return Math.max(-1.25, Math.min(1.25, Math.atan2(r.left - e.clientX, Math.max(40, e.clientY - r.top))));
+  }
+  bd.addEventListener('pointerdown', function (e) { drag = true; om = 0; pl = performance.now(); try { bd.setPointerCapture(e.pointerId); } catch (x) {} });
+  bd.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var n = pt(e), now = performance.now(), d = Math.max(8, now - pl) / 1000;
+    om = (n - th) / d * 0.6; th = n; pl = now;
+    if (reduce) pend.style.transform = 'rotate(' + th + 'rad)';
+  });
+  function rel() { drag = false; om = Math.max(-6, Math.min(6, om)); }
+  bd.addEventListener('pointerup', rel); bd.addEventListener('pointercancel', rel);
+
+  if (reduce) { th = 0; pend.style.transform = 'none'; return; }
+  pend.style.transform = 'rotate(' + th + 'rad)';
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { vis = es[0].isIntersecting; if (vis) go(); }).observe(stage);
+  } else { vis = true; go(); }
+})();

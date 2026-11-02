@@ -41,27 +41,21 @@ h1,h2{font-weight:800;line-height:1.08}
 .find a{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;border:1px solid var(--line);background:rgba(15,23,42,.6);color:#cbd5e1;transition:.3s}
 .find a:hover{transform:translateY(-5px) rotate(-6deg);color:#fff;border-color:var(--b2);box-shadow:0 8px 24px rgba(37,99,235,.4)}
 .find svg{width:24px;height:24px}
-/* music */
+
+/* Spotify Card & Iframe Styles */
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(8px)}
-.music{padding:30px 0 0;overflow:hidden;border-color:rgba(37,99,235,.45);box-shadow:0 0 60px rgba(37,99,235,.15);animation:float 6s ease-in-out infinite}
+.spotify-card{padding:30px 20px 20px 20px !important;border-color:rgba(37,99,235,.45);box-shadow:0 0 60px rgba(37,99,235,.15);animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-10px)}}
-.music h2{font-size:2.2rem;padding:0 30px}.music>p{padding:10px 30px 24px;color:var(--mut)}
-.now{margin:0 10px;background:#232326;border-radius:14px 14px 0 0;padding:20px;display:flex;gap:20px;position:relative}
-.cover{width:140px;height:140px;overflow:hidden;flex:none;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#000;}
-.cover img{width:100%;height:100%;object-fit:cover;}
-.now h3{font-size:1.6rem;margin-top:26px}.now small{color:#a1a1aa;display:block;margin-top:6px}
-.eq{display:flex;gap:3px;align-items:flex-end;height:18px;margin-top:14px}
-.eq i{width:4px;height:4px;background:var(--b2);border-radius:2px}
-.playing .eq i{animation:eq .8s ease-in-out infinite}.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}
-@keyframes eq{50%{height:18px}}
-.ctl{position:absolute;right:20px;bottom:18px;display:flex;align-items:center;gap:14px}
-.ctl button{background:none;border:0;color:#d4d4d8;font-size:1rem;cursor:pointer;transition:transform .2s}.ctl button:hover{transform:scale(1.2);color:#fff}
-.ctl .pl{width:54px;height:54px;border-radius:50%;background:#fff;color:#000;font-size:1.2rem}
-.bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#3f3f46}.bar i{display:block;height:100%;width:0;background:var(--b2)}
-.tl{background:#18181b;margin:0 10px;border-radius:0 0 14px 14px;max-height:200px;overflow:auto}
-.tl div{display:flex;gap:16px;padding:14px 24px;cursor:pointer;transition:background .2s;align-items:center}
-.tl div:hover,.tl .on{background:#27272a}.tl .on b{color:var(--b2)}
-.tl em{font-style:normal;color:#71717a;width:14px}.tl span{flex:1}.tl small{display:block;color:#71717a;margin-top:3px}.tl time{color:#a1a1aa}
+.spotify-card h2{font-size:2.2rem;padding:0 10px}
+.spotify-card > p{padding:10px 10px 20px 10px;color:var(--mut)}
+.spotify-wrapper{width:100%;border-radius:12px;overflow:hidden}
+.spotify-wrapper iframe {
+  border-radius: 12px;
+  border: 0;
+  width: 100%;
+  height: 352px;
+}
+
 /* about */
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center}
 .name{background:linear-gradient(90deg,#fff 30%,#777);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -80,7 +74,7 @@ h2.t{font-size:clamp(2rem,4vw,3rem);text-align:center;margin-bottom:50px}
 .thumb{height:190px;border-radius:12px;margin-bottom:22px;display:grid;place-items:center;font-size:1.5rem;font-weight:800;color:#fff;position:relative;overflow:hidden}
 .thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.25) 50%,transparent 65%);transform:translateX(-100%);transition:transform .8s}
 .pc:hover .thumb:after{transform:translateX(100%)}
-.pc h3{font-size:1.4rem}.pc p{color:#b8c6e0;line-height:1.6;margin:14px 0 22px;display:-webkit-box;;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.pc h3{font-size:1.4rem}.pc p{color:#b8c6e0;line-height:1.6;margin:14px 0 22px;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;flex:1}
 .pc .btn{align-self:flex-start;padding:12px 22px}
 .modal{position:fixed;inset:0;z-index:100;background:rgba(0,3,12,.75);backdrop-filter:blur(6px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
 .modal.on{opacity:1;pointer-events:auto}
@@ -113,7 +107,7 @@ label{display:block;margin:0 0 10px;font-weight:700}label small{font-weight:400;
 .hero .big span{display:block;animation:up .9s cubic-bezier(.2,.9,.3,1) both}.hero .big span+span{animation-delay:.18s}
 .hero .sub,.hero .lead,.hero .row,.hero .find{animation:up .9s .45s cubic-bezier(.2,.9,.3,1) both}
 @keyframes up{from{opacity:0;transform:translateY(50px)}}
-@media(max-width:960px){.g2,.g3,.cg,.grid{grid-template-columns:1fr}.nav a{padding:10px 14px;font-size:.85rem}section{padding:130px 6vw 60px}.now{flex-direction:column}.ctl{position:static}.photo{order:-1}}
+@media(max-width:960px){.g2,.g3,.cg,.grid{grid-template-columns:1fr}.nav a{padding:10px 14px;font-size:.85rem}section{padding:130px 6vw 60px}.photo{order:-1}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 .card .thumb {width: 100%; height: 180px;border-radius: 10px; overflow: hidden;background: #141c2e;margin-bottom: 16px;}
 .card .thumb img{width: 100%;height: 100%; object-fit: cover;}
@@ -135,3 +129,28 @@ label{display:block;margin:0 0 10px;font-weight:700}label small{font-weight:400;
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* Dây đeo + thẻ sinh viên UTH */
+.lny-wrap{display:flex;justify-content:center;position:relative;z-index:2}
+.lny-stage{position:relative;width:100%;max-width:360px;height:470px}
+#lny-anc{position:absolute;left:50%;top:20px;width:0;height:0}
+.lny-pend{position:absolute;left:50%;top:20px;width:0;height:0;transform-origin:0 0}
+.lny-anchor{position:absolute;left:-26px;top:-16px;width:52px;height:18px;border-radius:7px 7px 4px 4px;background:linear-gradient(#2c3550,#1a2038);box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.lny-anchor::after{content:"";position:absolute;left:50%;bottom:-9px;width:26px;height:14px;margin-left:-13px;border:3px solid #aeb8c4;border-top:0;border-radius:0 0 12px 12px}
+.lny-strap{position:absolute;left:-15px;top:0;width:30px;height:150px;overflow:hidden;box-sizing:border-box;border-inline:3px solid #b3bcc2;background:linear-gradient(90deg,#235f6a,#2f8793 40%,#1d535d);box-shadow:inset 3px 0 0 rgba(255,255,255,.22)}
+.lny-strap span{display:block;height:100%;writing-mode:vertical-rl;white-space:nowrap;text-align:center;font-size:7px;font-weight:700;letter-spacing:.09em;color:#fff;line-height:22px;padding-top:6px}
+.lny-buckle{position:absolute;left:-17px;top:138px;width:34px;height:34px;border-radius:9px;background:linear-gradient(#fff,#d5dbe3);box-shadow:0 4px 10px rgba(0,0,0,.35);z-index:2}
+.lny-buckle::after{content:"";position:absolute;left:7px;right:7px;top:12px;height:9px;border-radius:5px;background:#98a3b8}
+.lny-ring{position:absolute;left:-9px;top:164px;width:18px;height:18px;border:3px solid #aeb8c4;border-radius:7px;z-index:3}
+.lny-badge{position:absolute;left:-95px;top:168px;width:190px;height:276px;padding:14px 14px 12px;border-radius:14px;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;z-index:1;background:radial-gradient(120% 70% at 100% 0,rgba(120,160,164,.55),transparent 60%),linear-gradient(160deg,#2c5057,#1b3236 60%,#142528);color:#eaf3f3;box-shadow:0 24px 50px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.12);text-align:left;overflow:hidden;font-family:inherit;line-height:1.3}
+.lny-badge::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.14),transparent 35%);pointer-events:none}
+.lny-badge:active{cursor:grabbing}
+.lny-badge .lny-sch{font-size:.46rem;line-height:1.25;letter-spacing:.02em;max-width:116px}
+.lny-badge .lny-sch b{display:block;font-size:.54rem;font-weight:700}
+.lny-badge .lny-lg{position:absolute;right:12px;top:12px;width:42px;height:42px;border-radius:11px;background:#fff;display:grid;place-items:center;font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:.82rem;color:#3d7f86;letter-spacing:-.02em}
+.lny-badge .lny-pic{position:relative;width:88px;height:100px;margin:10px auto 0;border-radius:9px;border:2px solid #fff;background:linear-gradient(150deg,#e9eef0,#c9d4d7);overflow:hidden;display:grid;place-items:center;font-weight:800;font-size:1.4rem;color:#3d6a70}
+.lny-badge .lny-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.lny-badge .lny-nm{margin-top:8px;text-align:center;font-weight:700;font-size:.78rem;letter-spacing:.02em}
+.lny-badge .lny-mj{text-align:center;font-size:.5rem;color:#c6d7d8;line-height:1.4}
+.lny-badge .lny-bc{position:absolute;left:14px;right:14px;bottom:12px;height:24px;border-radius:6px;background:#fff repeating-linear-gradient(90deg,#111 0 2px,#fff 2px 4px,#111 4px 5px,#fff 5px 8px,#111 8px 11px,#fff 11px 12px)}
+@media(max-width:960px){.lny-wrap{order:-1}}
